@@ -2,9 +2,17 @@
 ## Review of Elliptic Curves (Sep. 12 - Sep. 18)
 ### Definition
 An elliptic curve is a plane curve defined by the equation y<sup>2</sup> = f(x) = x<sup>3</sup> + ax + b (a,b ∈ K), where f(x) is a cubic polynomial with no repeated roots (4a<sup>3</sup> + 27b<sup>2</sup> ≠ 0).
-### Singularity
+### Characteristic
+#### Calculation
+* O (infinity) is taken as "zero element", -O = O, O + P = P
+* -(x,y) = (x,-y)
+* P + Q = -R (when P = Q)
+
+#### Singularity
 Take the definition as F(x,y) = 0, then a point (x,y) is non-singular (or a smooth point) if ∂F/∂x or ∂F/∂y ≠ 0.  
 In this way, with the cubic (x<sup>3</sup>), no multiple roots == all points are non-singular.
+#### Abelian
+The set of points on an elliptic curve forms an abelian group.
 ### Field of characteristic 2
 The simplest field with characteristic 2 is F<sub>2</sub> = Z/2Z -> 1 + 1 (2 times) = 0 (mod 2).  
 More generally, for every n ≥ 1, there is exactly one field of cardinality 2<sup>n</sup> up to isomorphism, denoted F<sub>2</sub>n. Like all fields of characteristic 2, these fields contain F<sub>2</sub> as a subfield.  
