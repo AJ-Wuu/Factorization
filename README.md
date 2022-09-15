@@ -51,3 +51,8 @@ When more than one components on the triple (X,Y,Z) are 0, then we find the poin
 kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated doubling
 * this is not always the best, like when p = 2 (char(K) = 2)
 * if we know NP = 0 and k > N, then use k ≡ k mod N, and the time estimate becomes O(log<sup>4</sup>q) as N < q + 1 + 2√q = O(q)
+### Imbedding plaintexts
+* Encoding is not the same as Encryption.
+* There is no polynomial time deterministic algorithm known for writing down a large number of points on an arbitrary E.
+* There are probabilistic algorithms for which the chance of failure is very small.
+* In order to encode a large number of possible messages *m*, we need a systematic way to generate points that are related to *m* in some way (like the x-coordinate has a simple relationship to the integer *m*).
