@@ -47,3 +47,7 @@ When more than one components on the triple (X,Y,Z) are 0, then we find the poin
 #### Extensions of finite fields and the Weil conjectures -- P158
 
 ## Cryptosystems
+### Multiple of points
+kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated doubling
+* this is not always the best, like when p = 2 (char(K) = 2)
+* if we know NP = 0 and k > N, then use k ≡ k mod N, and the time estimate becomes O(log<sup>4</sup>q) as N < q + 1 + 2√q = O(q)
