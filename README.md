@@ -7,7 +7,9 @@ An elliptic curve is a plane curve defined by the equation y<sup>2</sup> = f(x) 
 * O (infinity) is taken as "zero element", -O = O, O + P = P
 * -(x,y) = (x,-y)
 * P + Q = -R (when P = Q)
-
+<div>
+    <img src="./EC-Calculation.png" alt="Different Cases"/>
+</div>
 #### Singularity
 Take the definition as F(x,y) = 0, then a point (x,y) is non-singular (or a smooth point) if ∂F/∂x or ∂F/∂y ≠ 0.  
 In this way, with the cubic (x<sup>3</sup>), no multiple roots == all points are non-singular.
