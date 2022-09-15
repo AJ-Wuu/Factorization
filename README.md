@@ -65,7 +65,10 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
   * for the multiplicative group of integers modulo N, the best known algorithm takes sub-exponential time
   * for elliptic-curve groups (that your laptop uses to talk to your mail server), the best known algorithm requires exponential time O(N<sup>1/2</sup>)
 #### Extension to E
-If E is an elliptic curve over F<sun>q</sub> and B is a point of E, then the discrete log problem on E (to the base B) is: given a point P ∈ E, of finding an integer x ∈ Z such that xB = P if such an integer x exists.
+* Definition: if E is an elliptic curve over F<sun>q</sub> and B is a point of E, then the discrete log problem on E (to the base B) is: given a point P ∈ E, of finding an integer x ∈ Z such that xB = P if such an integer x exists
+* It seems that the analogous systems using elliptic curves defined over F<sub>2<sup>r</sup></sub> will be secure with significantly smaller values of r
+* Practical reasons (relating to both hardware and software) prefer to do arithmetic over F<sub>2<sup>r</sup></sub>
+  * it might be more convenient in applications than based on Discrete Log Problem in F<sub>q</sub><sup>*</sup>
 
 ## Questions
 1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
