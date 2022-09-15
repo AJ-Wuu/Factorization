@@ -56,3 +56,16 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
 * There is no polynomial time deterministic algorithm known for writing down a large number of points on an arbitrary E.
 * There are probabilistic algorithms for which the chance of failure is very small.
 * In order to encode a large number of possible messages *m*, we need a systematic way to generate points that are related to *m* in some way (like the x-coordinate has a simple relationship to the integer *m*).
+### Discrete log on E
+#### Discrete Log Problem
+* Influence: upon it, we build the key-exchange protocols, the digital-signature schemes, and the public-key encryption systems
+* Definition: with a finite cyclic group G = {g, g<sup>2</sup>, g<sup>3</sup>, ...} of prime order N, given (g, g<sup>x</sup>) ∈ G<sup>2</sup>, for an x sampled uniformly at random from Z<sub>N</sub>, find x ∈ Z<sub>N</sub>
+* Hardness: depend crucially on the choice of the group G
+  * for the additive group of integers modulo N, it could be solved in polynomial time
+  * for the multiplicative group of integers modulo N, the best known algorithm takes sub-exponential time
+  * for elliptic-curve groups (that your laptop uses to talk to your mail server), the best known algorithm requires exponential time O(N<sup>1/2</sup>)
+#### Extension to E
+If E is an elliptic curve over F<sun>q</sub> and B is a point of E, then the discrete log problem on E (to the base B) is: given a point P ∈ E, of finding an integer x ∈ Z such that xB = P if such an integer x exists.
+
+## Questions
+1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
