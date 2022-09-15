@@ -6,7 +6,7 @@ An elliptic curve is a plane curve defined by the equation y<sup>2</sup> = f(x) 
 #### Calculation
 * O (infinity) is taken as "zero element", -O = O, O + P = P
 * -(x,y) = (x,-y)
-* P + Q = -R (when P = Q)
+* P + Q = -R (when P = Q, R is the only other point of intersection of *l* with the curve, and R could be O if *l* has double-tangency)
 <div>
     <img src="./EC-Calculation.png" alt="Different Cases"/>
 </div>
