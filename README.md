@@ -118,9 +118,10 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
 4. choose a large prime p
 5. get E mod p over F<sub>p</sub> and P mod p
     * for E mod p being of prime order N for large p, E must have trivial torsion (no points except O of finite order) -> otherwise, N will be divisible by the order of the torsion subgroup
+#### If the elliptic curve has prime order of points, then all of its finite points are generator (O is not).
 #### Order of P
-1. divisible by a very large prime == having order of magnitude almost as large as N
-2. guarantee P is suitable -- choose E and F<sub>q</sub> so that N is prime -> every P ≠ O will be a generator
+1. divisible by a very large prime == having order of magnitude almost as large as N == not a generator
+2. to guarantee P is suitable == choose E and F<sub>q</sub> so that N is prime == every P ≠ O will be a generator
 
 ## Questions
 1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
