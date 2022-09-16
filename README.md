@@ -112,7 +112,7 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
 #### Reducing a global (E,P) mod p
 1. choose "once and for all" a "global" elliptic curve and a point of infinite order on it
 2. let E be defined over the field of rational numbers
-3. let P be a point of infinite order on E
+3. let P be a point of infinite order on E  
 eg. P = (0,0), E: y<sup>2</sup> + y = x<sup>3</sup> - x
 
 ## Questions
