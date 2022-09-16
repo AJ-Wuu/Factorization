@@ -102,6 +102,12 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
     2. B multiplies kP by a<sub>B</sub>, then decreases by P<sub>m</sub> + k(a<sub>B</sub>P as P<sub>m</sub> + k(a<sub>B</sub>P) - a<sub>B</sub>(kP) = P<sub>m</sub>
 3. kP is the "clue", and ka<sub>B</sub>P is the "mask"
 
+### Randomly choose elliptic curve E and base point P with large finite field F<sub>q</sub>
+1. let x,y,a ∈ F<sub>q</sub>
+2. set b = y<sup>2</sup> - (x<sup>3</sup> + ax)
+3. make sure x<sup>3</sup> + ax + b doesn't have multiple roots -> equivalent to 4a<sup>3</sup> + 27b<sup>2</sup> ≠ 0
+4. set P = (x,y) and E: y<sup>2</sup> = x<sup>3</sup> + ax + b
+
 ## Questions
 1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
 2. P164 - Diffie-Hellman, "converted to a random r-digit base-p integer" -> how long it takes to process this?
