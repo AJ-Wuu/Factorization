@@ -51,11 +51,13 @@ When more than one components on the triple (X,Y,Z) are 0, then we find the poin
 kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated doubling
 * this is not always the best, like when p = 2 (char(K) = 2)
 * if we know NP = 0 and k > N, then use k ≡ k mod N, and the time estimate becomes O(log<sup>4</sup>q) as N < q + 1 + 2√q = O(q)
+
 ### Imbedding plaintexts
 * Encoding is not the same as Encryption.
 * There is no polynomial time deterministic algorithm known for writing down a large number of points on an arbitrary E.
 * There are probabilistic algorithms for which the chance of failure is very small.
 * In order to encode a large number of possible messages *m*, we need a systematic way to generate points that are related to *m* in some way (like the x-coordinate has a simple relationship to the integer *m*).
+
 ### Discrete log on E
 #### Discrete Log Problem
 * Influence: upon it, we build the key-exchange protocols, the digital-signature schemes, and the public-key encryption systems
@@ -69,6 +71,15 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
 * It seems that the analogous systems using elliptic curves defined over F<sub>2<sup>r</sup></sub> will be secure with significantly smaller values of r
 * Practical reasons (relating to both hardware and software) prefer to do arithmetic over F<sub>2<sup>r</sup></sub>
   * it might be more convenient in applications than based on Discrete Log Problem in F<sub>q</sub><sup>*</sup>
+
+### Diffie-Hellman
+#### Process
+1. Public: finite field F<sub>q</sub> and elliptic curve E
+2. Private Key:  
+   2.1. choose an arbitrary point P ∈ E (where P.x ∈ F<sub>q</sub>)  
+   2.2. A chooses a random integer a, gets aP ∈ E, send aP to B  
+   2.3. B chooses a random integer b, gets bP ∈ E, send bP to A  
+   2.4. both A and B have abP  
 
 ## Questions
 1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
