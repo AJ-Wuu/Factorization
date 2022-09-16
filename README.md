@@ -81,7 +81,7 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
     4. both A and B have abP -- there seems no way to get abP only by aP and bP
 
 ### Massey-Omura
-1. Public: imbed message *m* as points P<sub>m</sub> on public elliptic curve E over F<sub>q</sub> (q is very large), the number of points on E is N
+1. Public: imbed message *m* as points P<sub>m</sub> on public elliptic curve E over F<sub>q</sub> (q is very large), **the number of points on E is N**
 2. Process:
     1. A chooses e<sub>A</sub> ∈ [1,N] that gcd(e<sub>A</sub>,N) = 1
         1. gets d<sub>A</sub> by Euclidean algorithm as d<sub>A</sub> = e<sub>A</sub><sup>-1</sup> (d<sub>A</sub>e<sub>A</sub> ≡ 1 mod N)
@@ -102,11 +102,17 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
     2. B multiplies kP by a<sub>B</sub>, then decreases by P<sub>m</sub> + k(a<sub>B</sub>P as P<sub>m</sub> + k(a<sub>B</sub>P) - a<sub>B</sub>(kP) = P<sub>m</sub>
 3. kP is the "clue", and ka<sub>B</sub>P is the "mask"
 
-### Randomly choose elliptic curve E and base point P with large finite field F<sub>q</sub>
+### Choice of elliptic curve E and base point P
+#### Randomly choose E and P with large finite field F<sub>q</sub>
 1. let x,y,a ∈ F<sub>q</sub>
 2. set b = y<sup>2</sup> - (x<sup>3</sup> + ax)
 3. make sure x<sup>3</sup> + ax + b doesn't have multiple roots -> equivalent to 4a<sup>3</sup> + 27b<sup>2</sup> ≠ 0
 4. set P = (x,y) and E: y<sup>2</sup> = x<sup>3</sup> + ax + b
+5. to ensure the security, N needs to have very large prime factors (though it's not necessarily needed in Diffie-Hellman and El Gamal)
+#### Reducing a global (E,P) mod p
+1. choose "once and for all" a "global" elliptic curve and a point of infinite order on it
+2. let E be defined over the field of rational numbers
+3. let P be a point of infinite order on E
 
 ## Questions
 1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
