@@ -75,7 +75,7 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
 ### Diffie-Hellman
 1. Public: finite field F<sub>q</sub> and elliptic curve E
 2. Private Key:  
-    1. choose an arbitrary point P ∈ E (where P.x ∈ F<sub>q</sub>)
+    1. choose an arbitrary base point P ∈ E (where P.x ∈ F<sub>q</sub>)
     2. A chooses a random integer a, gets aP ∈ E, send aP to B
     3. B chooses a random integer b, gets bP ∈ E, send bP to A
     4. both A and B have abP -- there seems no way to get abP only by aP and bP
@@ -85,15 +85,23 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
 2. Process:
     1. A chooses e<sub>A</sub> ∈ [1,N] that gcd(e<sub>A</sub>,N) = 1
         1. gets d<sub>A</sub> by Euclidean algorithm as d<sub>A</sub> = e<sub>A</sub><sup>-1</sup> (d<sub>A</sub>e<sub>A</sub> ≡ 1 mod N)
-        2. passes on e<sub>A</sub>P<sub>m</sub>
+        2. sends e<sub>A</sub>P<sub>m</sub>
     2. B chooses e<sub>B</sub> ∈ [1,N] that gcd(e<sub>B</sub>,N) = 1
         1. gets d<sub>B</sub> by Euclidean algorithm as d<sub>B</sub> = e<sub>B</sub><sup>-1</sup> (d<sub>B</sub>e<sub>B</sub> ≡ 1 mod N)
-        2. passes on e<sub>A</sub>e<sub>B</sub>P<sub>m</sub>
-    3. A multiplies d<sub>A</sub> and passes d<sub>A</sub>e<sub>A</sub>e<sub>B</sub>P<sub>m</sub> ≡ N * e<sub>B</sub>P<sub>m</sub> ≡ e<sub>B</sub>P<sub>m</sub> mod N
+        2. sends e<sub>A</sub>e<sub>B</sub>P<sub>m</sub>
+    3. A multiplies d<sub>A</sub> and sends d<sub>A</sub>e<sub>A</sub>e<sub>B</sub>P<sub>m</sub> ≡ N * e<sub>B</sub>P<sub>m</sub> ≡ e<sub>B</sub>P<sub>m</sub> mod N
     4. B multiplies d<sub>B</sub> and gets d<sub>B</sub>e<sub>B</sub>P<sub>m</sub> ≡ N * P<sub>m</sub> ≡ P<sub>m</sub> mod N
 
 ### El Gamal
+1. Public:
+    1. finite field F<sub>q</sub>, elliptic curve E and base point P ∈ E
+    2. A chooses a secret integer a<sub>A</sub> and **publishes a<sub>A</sub>P**
+    3. B chooses a secret integer a<sub>B</sub> and **publishes a<sub>B</sub>P**
+2. Process:
+    1. A chooses a random integer k, sends (kP, P<sub>m</sub> + k(a<sub>B</sub>P))
+    2. B multiplies kP by a<sub>B</sub>, then decreases by P<sub>m</sub> + k(a<sub>B</sub>P as P<sub>m</sub> + k(a<sub>B</sub>P) - a<sub>B</sub>(kP) = P<sub>m</sub>
+3. kP is the "clue", and ka<sub>B</sub>P is the "mask"
 
 ## Questions
 1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
-2. P164 - Diffie-Hellman, "converted to a random r-digit base-p integer" -> q is the prime, r is random, p is P.x(?) -> is this a typo of p and q or how to process this?
+2. P164 - Diffie-Hellman, "converted to a random r-digit base-p integer" -> how long it takes to process this?
