@@ -8,7 +8,7 @@ Take the definition as F(x,y) = 0, then a point (x,y) is non-singular (or a smoo
 In this way, with the cubic (x<sup>3</sup>), no multiple roots == all points are non-singular.
 
 ### Field of characteristic 2
-The simplest field with characteristic 2 is F<sub>2</sub> = Z/2Z -> 1 + 1 (2 times) = 0 (mod 2).  
+The simplest field with characteristic 2 is F<sub>2</sub> = Z/2Z -> 1 + 1 (2 times) ≡ 0 (mod 2).  
 More generally, for every n ≥ 1, there is exactly one field of cardinality 2<sup>n</sup> up to isomorphism, denoted F<sub>2</sub>n. Like all fields of characteristic 2, these fields contain F<sub>2</sub> as a subfield.  
 Given any field K of characteristic 2, the algebraic closure of K also has characteristic 2. For example, the algebraic closure of F<sub>2</sub> can be considered the union of all the fields F<sub>2</sub>n.  
 
@@ -73,13 +73,27 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
   * it might be more convenient in applications than based on Discrete Log Problem in F<sub>q</sub><sup>*</sup>
 
 ### Diffie-Hellman
-#### Process
 1. Public: finite field F<sub>q</sub> and elliptic curve E
 2. Private Key:  
-   2.1. choose an arbitrary point P ∈ E (where P.x ∈ F<sub>q</sub>)  
-   2.2. A chooses a random integer a, gets aP ∈ E, send aP to B  
-   2.3. B chooses a random integer b, gets bP ∈ E, send bP to A  
-   2.4. both A and B have abP  
+    1. choose an arbitrary point P ∈ E (where P.x ∈ F<sub>q</sub>)
+    2. A chooses a random integer a, gets aP ∈ E, send aP to B
+    3. B chooses a random integer b, gets bP ∈ E, send bP to A
+    4. both A and B have abP -- there seems no way to get abP only by aP and bP
+
+### Massey-Omura
+1. Public: imbed message *m* as points P<sub>m</sub> on public elliptic curve E over F<sub>q</sub> (q is very large), the number of points on E is N
+2. Process:
+    1. A chooses e<sub>A</sub> ∈ [1,N] that gcd(e<sub>A</sub>,N) = 1
+        1. gets d<sub>A</sub> by Euclidean algorithm as d<sub>A</sub> = e<sub>A</sub><sup>-1</sup> (d<sub>A</sub>e<sub>A</sub> ≡ 1 mod N)
+        2. passes on e<sub>A</sub>P<sub>m</sub>
+    2. B chooses e<sub>B</sub> ∈ [1,N] that gcd(e<sub>B</sub>,N) = 1
+        1. gets d<sub>B</sub> by Euclidean algorithm as d<sub>B</sub> = e<sub>B</sub><sup>-1</sup> (d<sub>B</sub>e<sub>B</sub> ≡ 1 mod N)
+        2. passes on e<sub>A</sub>e<sub>B</sub>P<sub>m</sub>
+    3. A multiplies d<sub>A</sub> and passes d<sub>A</sub>e<sub>A</sub>e<sub>B</sub>P<sub>m</sub> ≡ N * e<sub>B</sub>P<sub>m</sub> ≡ e<sub>B</sub>P<sub>m</sub> mod N
+    4. B multiplies d<sub>B</sub> and gets d<sub>B</sub>e<sub>B</sub>P<sub>m</sub> ≡ N * P<sub>m</sub> ≡ P<sub>m</sub> mod N
+
+### El Gamal
 
 ## Questions
 1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
+2. P164 - Diffie-Hellman, "converted to a random r-digit base-p integer" -> q is the prime, r is random, p is P.x(?) -> is this a typo of p and q or how to process this?
