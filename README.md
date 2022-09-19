@@ -126,3 +126,5 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
 ## Questions
 1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
 2. P164 - Diffie-Hellman, "converted to a random r-digit base-p integer" -> how long it takes to process this?
+3. Elliptic Curve Factorization
+4. 
