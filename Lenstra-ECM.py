@@ -1,3 +1,5 @@
+# Lestra's Elliptic Curve Method for Factorization
+
 import math
 import sys, traceback
 import random
