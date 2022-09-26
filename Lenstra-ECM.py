@@ -21,11 +21,11 @@ def get_inverse(m,n):
 		return (1, x % n) # the inverse of m (mod n) when gcd(m, n) == 1
 
 
-#B. Given input of three integers: (b,c,n) and a pair of ordered pairs (x1,y1) and (x2,y2)
+# Given input of three integers: (b,c,n) and a pair of ordered pairs (x1,y1) and (x2,y2)
 ##(i) Determine whether the two points are on the elliptic curve y^2 = x^3 + bx + c (mod n)
 ##(ii) If they are on the elliptic curve, either:
-##(iia) Add them to get a third point, or else
-##(iib) Explain that they cannot be added and return the reason why. 
+###(iia) Add them to get a third point, or else
+###(iib) Explain that they cannot be added and return the reason why
 def curve_calculation(b,c,n,x1,y1,x2,y2):
     # check O
 	if x1 == "inf":
