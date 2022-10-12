@@ -3,7 +3,7 @@
 #include <iostream>
 #include <numeric>
 
-unsigned long long pollard_rho(unsigned long long n) {
+long long pollard_rho(long long n) {
 	srand(time(NULL));
 
 	if (n == 1) {
@@ -14,10 +14,10 @@ unsigned long long pollard_rho(unsigned long long n) {
 		return 2;
 	}
 
-	unsigned long long x = (rand() % (n - 2)) + 2;
-	unsigned long long y = x;
-	unsigned long long c = (rand() % (n - 1)) + 1;
-	unsigned long long d = 1;
+	long long x = (rand() % (n - 2)) + 2;
+	long long y = x;
+	long long c = (rand() % (n - 1)) + 1;
+	long long d = 1;
 
 	while (d == 1) {
 		x = (modular_pow(x, 2, n) + c + n) % n;

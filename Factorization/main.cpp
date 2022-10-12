@@ -1,17 +1,20 @@
+#include <stdio.h>
+
+#include <iostream>
+#include <vector>
+
 #include "Lenstra-ECM.h"
 #include "Miller-Rabin-Prime.h"
 #include "Pollard-Rho.h"
 #include "Trial-Division.h"
-#include <stdio.h>
-#include <iostream>
-#include <vector>
+#include "BigInteger/BigIntegerLibrary.hh"
 
 using namespace std;
 
 int main() {
-    unsigned long long n = 10967535067; // integers between [0, 2^64)
-    unsigned long long criteria = 100000000000uL;
-    vector<unsigned long long> answer;
+    long long n = 10967535067;  // integers between [0, 2^64)
+    long long criteria = 1000uL;
+    vector<long long> answer;
     cout << "n = " << n << " = ";
 
     while (true) {
@@ -20,13 +23,12 @@ int main() {
             break;
         }
 
-        unsigned long long factor = trial_division(n);
+        long long factor = trial_division(n);
         if (factor == 0) {
             if (n < criteria) {
                 factor = pollard_rho(n);
             } else {
-                break;
-                // factor = 1;  // ecm(n);
+                factor = ecm(n);
             }
         }
 
@@ -34,8 +36,8 @@ int main() {
         n /= factor;
     }
 
-    for (unsigned int i = 0; i < answer.size() - 1; i++) {
+    for (int i = 0; i < answer.size() - 1; i++) {
         printf("%lld * ", answer.at(i));
     }
-    printf("%lld\n", answer.at(answer.size()-1));
+    printf("%lld\n", answer.at(answer.size() - 1));
 }

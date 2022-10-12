@@ -5,10 +5,10 @@
 
 const int k = 10;
 
-bool miller_rabin_test(unsigned long long d, unsigned long long n) {
+bool miller_rabin_test(long long d, long long n) {
     srand(time(NULL));
-    unsigned long long a = 2 + rand() % (n - 4);  // make sure n > 4
-    unsigned long long x = modular_pow(a, d, n);
+    long long a = 2 + rand() % (n - 4);  // make sure n > 4
+    long long x = modular_pow(a, d, n);
     if (x == 1 || x == n - 1) {
         return true;
     }
@@ -32,7 +32,7 @@ bool miller_rabin_test(unsigned long long d, unsigned long long n) {
     return false;
 }
 
-bool is_prime(unsigned long long n) {
+bool is_prime(long long n) {
     // edge cases, n <= 4
     if (n <= 1 || n == 4) {
         return false;
@@ -42,7 +42,7 @@ bool is_prime(unsigned long long n) {
     }
 
     // find r such that n = 2^d * r + 1 for some r >= 1
-    unsigned long long d = n - 1;
+    long long d = n - 1;
     while (d % 2 == 0) {
         d /= 2;
     }
