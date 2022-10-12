@@ -122,9 +122,3 @@ kP ∈ E can be found in O(logk log<sup>3</sup>q) bit operations by repeated dou
 #### Order of P
 1. divisible by a very large prime == having order of magnitude almost as large as N == not a generator
 2. to guarantee P is suitable == choose E and F<sub>q</sub> so that N is prime == every P ≠ O will be a generator
-
-## Questions
-1. P163 - one possible probabilistic method -> why 30 to 50 are enough?
-2. P164 - Diffie-Hellman, "converted to a random r-digit base-p integer" -> how long it takes to process this?
-3. Elliptic Curve Factorization
-4. 
