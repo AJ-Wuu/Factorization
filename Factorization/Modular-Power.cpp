@@ -1,7 +1,7 @@
 #include "Modular-Power.h"
 
-unsigned long long modular_pow(unsigned long long base, int exponent, unsigned long long modulus) {
-	unsigned long long result = 1;
+long long modular_pow(long long base, int exponent, long long modulus) {
+	long long result = 1;
 
 	while (exponent > 0) {
 		if (exponent & 1) { // if y is odd, multiply base with result

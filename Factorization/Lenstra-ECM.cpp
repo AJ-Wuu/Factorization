@@ -6,7 +6,7 @@
 #include <string>
 
 const BigInteger INF = stringToBigInteger("1000000000000000000000000000000");
-const int bound = 1000;
+const int bound = 10;
 
 BigInteger modulo(BigInteger number, BigInteger base) {
 	if (number >= 0) {
@@ -101,7 +101,9 @@ void curve_calculation(BigInteger* result, BigInteger b, BigInteger c, BigIntege
 
 void lenstra(BigInteger n, BigInteger* result) {
 	srand(time(NULL));
-	while (true) {
+
+	int count = 0;
+	while (count < bound) {
 		BigInteger p1 = (n-1) * rand() + 1; // within (1,n)
 		BigInteger p2 = (n-1) * rand() + 1;
 		BigInteger b = (n-1) * rand() + 1;
@@ -124,10 +126,15 @@ void lenstra(BigInteger n, BigInteger* result) {
 			}
 			times++;
 		}
+
+		count++;
 	}
+
+	assign_result(result, n, n, n);
+	return;
 }
 
-long long ecm(long long n) {
+long long ecm_longlong(long long n) {
 	BigInteger* lenstra_result = new BigInteger[3];
 	std::string n_string = std::to_string(n);
 	BigInteger n_biginteger = stringToBigInteger(n_string);
@@ -135,5 +142,12 @@ long long ecm(long long n) {
 	BigInteger result_biginteger = *(lenstra_result+1);
 	std::string result_string = bigIntegerToString(result_biginteger);
 	long long result = std::stoll(result_string);
+	return result;
+}
+
+BigInteger ecm_biginteger(BigInteger n) {
+	BigInteger* lenstra_result = new BigInteger[3];
+	lenstra(n, lenstra_result);
+	BigInteger result = *(lenstra_result + 1);
 	return result;
 }
