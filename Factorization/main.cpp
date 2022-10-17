@@ -34,6 +34,13 @@ void generate_number(int digits, char* string) {
     *(string + digits) = '\0'; // add the end mark of this string
 }
 
+/*
+   For different range of input, the most convincing way is to perform them with the same steps,
+   meaning that it's better to add trial-division and pollard-rho to over 18-digit cases.
+   
+   It is possible that when the primality test suggests a number to be non-prime, but Lenstra cannot find its factor.
+   In this case, we either execute more loops of Lenstra with the belief of it being non-prime, or follow the factorization result that it might be prime.
+ */
 int main() {
     //long long n = 10967535067;  // initial test
     long long criteria = 1000uL;
