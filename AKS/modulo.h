@@ -1,5 +1,5 @@
-#ifndef modulo
-#define modulo
+#ifndef MODULO_H
+#define MODULO_H
 
 #include <cmath>
 #include <cstdint>
