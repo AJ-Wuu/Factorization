@@ -1,4 +1,5 @@
 #include "AKS.h"
+#include <chrono>
 #include <future>
 #include <inttypes.h>
 #include <iostream>
@@ -8,6 +9,8 @@
 
 
 using namespace std;
+using std::chrono::duration;
+using std::chrono::high_resolution_clock;
 std::random_device rd;
 std::mt19937 gen(rd());
 
@@ -27,19 +30,26 @@ int main() {
 	cout << "single thread to determine if a random number is prime or composite" << endl;
 	uint64_t n = 2;
 	bool prime = false;
+	high_resolution_clock::time_point start, end;
+	duration<double, std::milli> ms;
 
 	for (int i = 1; i < 19; i++) {
 		uint64_t temp = pow(10, i);
 		n = get_random(temp, temp * 10);
 		cout << n;
 
+		start = high_resolution_clock::now();
 		prime = is_prime(n);
+		end = high_resolution_clock::now();
 		if (prime) {
-			cout << " is prime" << endl;
+			cout << " is prime        ";
 		}
 		else {
-			cout << " is composite" << endl;
+			cout << " is composite    ";
 		}
+
+		ms = std::chrono::duration_cast<duration<double, std::milli>>(end - start);
+		cout << "Time taken: " << ms.count() << "ms" << endl;
 	}
 
 	/**********************************************************************************************************************************************/
@@ -49,6 +59,7 @@ int main() {
 	const int numThreads = 5;
 	vector<future<void>> threads;
 
+	start = high_resolution_clock::now();
 	for (int i = 0; i < numThreads; ++i) {
 		threads.push_back(move(async(launch::async, [i]() {
 			int start = i * limit / numThreads;
@@ -64,5 +75,7 @@ int main() {
 		threads[i].wait();
 	}
 
-	cout << endl;
+	end = high_resolution_clock::now();
+	ms = std::chrono::duration_cast<duration<double, std::milli>>(end - start);
+	cout << "\nTime taken: " << ms.count() << "ms" << endl;
 }
