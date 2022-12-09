@@ -1,4 +1,4 @@
-# Senior Thesis of Elliptic Curves
+# Senior Thesis and Directed Study about Factorization
 ## Math Review
 ### Definition
 An elliptic curve is a plane curve defined by the equation y<sup>2</sup> = f(x) = x<sup>3</sup> + ax + b (a,b ∈ K), where f(x) is a cubic polynomial with no repeated roots (4a<sup>3</sup> + 27b<sup>2</sup> ≠ 0).
