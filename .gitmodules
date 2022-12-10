@@ -1,0 +1,3 @@
+[submodule "QuadraticSieve"]
+	path = QuadraticSieve
+	url = https://github.com/AJ-Wuu/QuadraticSieve
